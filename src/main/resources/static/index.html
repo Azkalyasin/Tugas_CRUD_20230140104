@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KTP Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-id-card"></i> KTP Management</h1>
+            <p>Efficiently manage population identity data</p>
+        </header>
+
+        <main>
+            <section class="form-section card">
+                <h2 id="form-title">Add New KTP</h2>
+                <form id="ktp-form">
+                    <input type="hidden" id="ktp-id">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="nomorKtp">Nomor KTP</label>
+                            <input type="text" id="nomorKtp" required placeholder="Enter 16 digit number">
+                        </div>
+                        <div class="form-group">
+                            <label for="namaLengkap">Nama Lengkap</label>
+                            <input type="text" id="namaLengkap" required placeholder="Full Name">
+                        </div>
+                        <div class="form-group">
+                            <label for="tanggalLahir">Tanggal Lahir</label>
+                            <input type="date" id="tanggalLahir" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jenisKelamin">Jenis Kelamin</label>
+                            <select id="jenisKelamin" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Laki-laki">Laki-laki</option>
+                                <option value="Perempuan">Perempuan</option>
+                            </select>
+                        </div>
+                        <div class="form-group full-width">
+                            <label for="alamat">Alamat</label>
+                            <textarea id="alamat" required placeholder="Full Address"></textarea>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn btn-primary">Save Data</button>
+                        <button type="button" id="cancel-btn" class="btn btn-secondary" style="display: none;">Cancel</button>
+                    </div>
+                </form>
+            </section>
+
+            <section class="table-section card">
+                <div class="table-header">
+                    <h2>KTP List</h2>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="search-input" placeholder="Search data...">
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table id="ktp-table">
+                        <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>Nomor KTP</th>
+                                <th>Nama Lengkap</th>
+                                <th>Alamat</th>
+                                <th>Tanggal Lahir</th>
+                                <th>Jenis Kelamin</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ktp-list">
+                            <!-- Data will be loaded here -->
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Notification Container -->
+    <div id="notification-container"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
